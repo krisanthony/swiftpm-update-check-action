@@ -50,7 +50,7 @@ async function executeOutdated(executeDirectory: string | null): Promise<Outdate
     const result: OutdatedPackage[] = [];
 
     for (const dependency of dependencies) {
-        if dependency.version == "unspecified" {
+        if dependency.version === "unspecified" {
             continue;
         }
         
