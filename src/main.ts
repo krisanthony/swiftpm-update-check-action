@@ -50,6 +50,10 @@ async function executeOutdated(executeDirectory: string | null): Promise<Outdate
     const result: OutdatedPackage[] = [];
 
     for (const dependency of dependencies) {
+        if dependency.version == "unspecified" {
+            continue;
+        }
+        
         const directory = path.relative(process.cwd(), dependency.path);
 
         const childExecOption: ExecOptions = { cwd: directory };
